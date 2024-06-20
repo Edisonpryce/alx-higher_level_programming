@@ -1,6 +1,8 @@
 #!/usr/bin/node
 // concatenation of 2 files
-const fl = require('fs');
-const File1 = fl.readFileSync(process.argv[2]).toString();
-const finalFile = fl.readFileSync(process.argv[3]).toString();
-fl.writeFileSync(process.argv[4], (firstFile + secondFile));
+const fs = require('fs');
+
+const fA = fs.readFileSync(process.argv[2], 'utf8');
+const fB = fs.readFileSync(process.argv[3], 'utf8');
+const answer = fA + fB;
+fs.writeFile(process.argv[4], answer, function (err) { if (err) throw err; });
