@@ -1,29 +1,19 @@
 #!/usr/bin/python3
-""" list states by user input"""
+"""Lists states"""
 
 import MySQLdb
-import sys
-
-
-def main():
-    db = MySQLdb.connect(
-          user=sys.argv[1],
-          host="localhost",
-          port=3306,
-          password=sys.argv[2],
-          db=sys.argv[3]
-    )
-    mycursor = db.cursor()
-    myquery = """
-SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC"""
-    myquery = myquery.format(sys.argv[4])
-    mycursor.execute(myquery)
-    results = mycursor.fetchall()
-    for row in results:
-        print(row)
-    mycursor.close()
-    db.close()
-
+from sys import argv
 
 if __name__ == "__main__":
-    main()
+    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3], charset="utf8")
+    cur = conn.cursor()
+    query = """
+SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC"""
+    query = query.format(argv[4])
+    cur.execute(query)
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        print(row)
+    cur.close()
+    conn.close()
