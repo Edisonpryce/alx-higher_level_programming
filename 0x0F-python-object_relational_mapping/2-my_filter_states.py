@@ -15,7 +15,9 @@ def main():
     )
     mycursor = db.cursor()
     mycursor.execute("""
-SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC""".format(sys.argv[4]))
+            SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC
+            """.format(sys.argv[4])
+            )
     results = mycursor.fetchall()
     for row in results:
         print(row)
