@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" """
+""" list states by user input """
 
 import MySQLdb
 import sys
@@ -15,7 +15,8 @@ def main():
           statename=sys.argv[4]
     )
     mycursor = db.cursor()
-    mycursor.execute("SELECT * FROM states WHERE name = {}".format(statename))
+    mycursor.execute("""
+SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC""".format(sys.argv[4]))
     results = mycursor.fetchall()
     for row in results:
         print(row)
