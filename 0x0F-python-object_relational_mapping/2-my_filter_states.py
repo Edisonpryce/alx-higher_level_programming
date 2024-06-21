@@ -15,7 +15,7 @@ def main():
           statename=sys.argv[4]
     )
     mycursor = db.cursor()
-    mycursor.execute("SELECT * FROM states WHERE name = %s", statename)
+    mycursor.execute("SELECT * FROM states WHERE name = {}".format(statename))
     results = mycursor.fetchall()
     for row in results:
         print(row)
