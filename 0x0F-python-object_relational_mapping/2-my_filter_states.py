@@ -11,8 +11,7 @@ def main():
           host="localhost",
           port=3306,
           password=sys.argv[2],
-          db=sys.argv[3],
-          statename=sys.argv[4]
+          db=sys.argv[3]
     )
     mycursor = db.cursor()
     mycursor.execute("""
