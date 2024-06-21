@@ -14,11 +14,16 @@ def main():
           database=sys.argv[3]
     )
     mycursor = db.cursor()
-    mycursor.execute("SELECT * FROM `cities` as `c` \
-                INNER JOIN `states` as `s` \
-                   ON `c`.`state_id` = `s`.`id` \
-                ORDER BY `c`.`id`")
-    print(", ".join([ct[2] for ct in c.fetchall() if ct[4] == sys.argv[4]]))
+    query = """
+    SELECT c.id, c.name
+    FROM cities c
+    JOIN states s ON c.state_id = s.id
+    WHERE s.name = %s
+    ORDER BY c.id ASC
+    """
+    mycursor.execute(query, (sys.argv[4],))
+    results = mycursor.fetchall()
+    print(", ".join([row[1] for row in results]))
     mycursor.close()
     db.close()
 
