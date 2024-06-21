@@ -14,9 +14,8 @@ def main():
           database=sys.argv[3]
     )
     mycursor = db.cursor()
-    mycursor.execute(
-        "SELECT * FROM states WHERE name LIKE \
-                    BINARY %(name)s ORDER BY states.id ASC", {'name': argv[4]})
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    mycursor.execute(query, (sys.argv[4],))
     results = mycursor.fetchall()
     for row in results:
         print(row)
