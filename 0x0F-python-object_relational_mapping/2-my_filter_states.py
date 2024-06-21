@@ -11,11 +11,13 @@ def main():
           host="localhost",
           port=3306,
           password=sys.argv[2],
-          db=sys.argv[3],
+          db=sys.argv[3]
     )
     mycursor = db.cursor()
-    mycursor.execute("""
-SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC""".format(sys.argv[4]))
+    myquery = """
+SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC"""
+    myquery = myquery.format(sys.argv[4])
+    mycursor.execute(myquery)
     results = mycursor.fetchall()
     for row in results:
         print(row)
