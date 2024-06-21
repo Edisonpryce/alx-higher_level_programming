@@ -2,16 +2,28 @@
 """Lists states by user name"""
 
 import MySQLdb
-from sys import argv
+import sys
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                           passwd=argv[2], db=argv[3], charset="utf8")
+
+def main():
+    db = MySQLdb.connect(
+          host="localhost",
+          port=3306,
+          user=sys.argv[1],
+          passwd=sys.argv[2],
+          db=sys.argv[3]
+          )
     mycursor = db.cursor()
-    mycursor.execute("SELECT * FROM states WHERE name = %s ORDER BY states.id ASC",
-                (argv[4], ))
-    query_rows = mycursor.fetchall()
-    for row in query_rows:
+    mycursor.execute(
+            """
+            SELECT * FROM states WHERE name = %s ORDER BY states.id ASC
+            """, (sys.argv[4], ))
+    results = mycursor.fetchall()
+    for row in results:
         print(row)
     mycursor.close()
     db.close()
+
+
+if __name__ == '__main__:
+    main()
