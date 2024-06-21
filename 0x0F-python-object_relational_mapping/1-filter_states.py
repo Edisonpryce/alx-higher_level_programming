@@ -10,7 +10,8 @@ def main():
     mycursor.execute("SELECT * FROM states ORDER BY states.id ASC")
     results = mycursor.fetchall()
     for row in results:
-        print(row)
+        if row[1].startswith("N"):
+            print(row)
     mycursor.close()
     db.close()
 
