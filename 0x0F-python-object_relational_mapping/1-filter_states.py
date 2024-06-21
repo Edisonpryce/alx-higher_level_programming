@@ -4,8 +4,15 @@
 import MySQLdb
 import sys
 
+
 def main():
-    db = MySQLdb.connect(user=sys.argv[1], host="localhost", port=3306, password=sys.argv[2], db=sys.argv[3], charset="utf8")
+    db = MySQLdb.connect(
+          user=sys.argv[1],
+          host="localhost",
+          port=3306,
+          password=sys.argv[2],
+          db=sys.argv[3]
+          )
     mycursor = db.cursor()
     mycursor.execute("SELECT * FROM states ORDER BY states.id ASC")
     results = mycursor.fetchall()
@@ -15,6 +22,6 @@ def main():
     mycursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     main()
-
