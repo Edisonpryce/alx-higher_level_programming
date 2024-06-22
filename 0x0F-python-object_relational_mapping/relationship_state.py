@@ -11,6 +11,12 @@ Base = declarative_base()
 
 
 class State(Base):
+    """ State class
+    __tablename__: its thetable of the class City
+    id (int): the id of the class State
+    name (str): the name of the class State
+    cities (rela): relates to the city class
+    """
     __tablename__ = 'cities'
 
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
