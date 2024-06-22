@@ -20,7 +20,7 @@ def db_engine():
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(State.name.like('%a%')).all()
+    states = session.query(State).filter(State.name.like('%a')).all()
     for state in states:
         session.delete(state)
     session.commit()
