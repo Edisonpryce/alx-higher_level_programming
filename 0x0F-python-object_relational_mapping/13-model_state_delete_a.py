@@ -20,6 +20,8 @@ def db_engine():
 
     Session = sessionmaker(bind=engine)
     session = Session()
+
+    """ This deletes a state name starting with 'a' in the db """
     states = session.query(State).filter(State.name.like('a%')).all()
     for state in states:
         session.delete(state)
