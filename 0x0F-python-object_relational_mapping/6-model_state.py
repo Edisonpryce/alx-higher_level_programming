@@ -5,6 +5,7 @@
 from sqlalchemy import create_engine
 import sys
 from model_state import Base, State
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -16,3 +17,7 @@ if __name__ == "__main__":
             f'mysql+mysqldb://{user}:{password}@localhost:3306/{db}'
             )
     Base.metadata.create_all(engine)
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    session.close()
