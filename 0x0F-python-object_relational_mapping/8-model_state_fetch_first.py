@@ -21,8 +21,8 @@ def db_engine():
     Session = sessionmaker(bind=engine)
     session = Session()
     states = session.query(State).order_by(State.id).first()
-    if state:
-        print(f"{state.id}: {state.name}")
+    if states:
+        print(f"{states.id}: {states.name}")
     else:
         print("Nothing")
     session.close()
