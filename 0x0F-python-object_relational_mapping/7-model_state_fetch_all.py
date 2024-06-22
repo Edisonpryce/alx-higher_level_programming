@@ -22,7 +22,7 @@ def db_engine():
     session = Session()
     states = session.query(State).all()
     for state in states:
-        print(state.id, state.name)
+        print(f"{state.id}: {state.name}")
 
     session.close()
 
