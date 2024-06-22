@@ -24,7 +24,7 @@ def db_engine():
                 filter(State.name.like('%a%')).\
                 order_by(State.id).all()
     for state in states:
-        print(state.id, state.name)
+        print(f"{state.id}: {state.name}")
 
     session.close()
 
