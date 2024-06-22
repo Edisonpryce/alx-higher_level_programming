@@ -5,11 +5,18 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 
-# Create an instance of declarative_base
 Base = declarative_base()
 
 
 class State(Base):
+    """ State clas
+
+    Attributes:
+    __tablename__ (str): Table name
+    id (int): State id
+    name (str): The state name
+    """
+
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, autoincrement=True,
