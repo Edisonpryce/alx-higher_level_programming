@@ -4,6 +4,7 @@
 
 from sqlalchemy import create_engine
 import sys
+from model_state import Base, State
 
 
 def db_engine():
