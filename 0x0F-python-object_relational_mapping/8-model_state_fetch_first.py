@@ -20,10 +20,11 @@ def db_engine():
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).all()
-    for state in states:
+    states = session.query(State).order_by(State.id).first()
+    if state:
         print(state.id, state.name)
-
+    else:
+        print("Nothing")
     session.close()
 
 
