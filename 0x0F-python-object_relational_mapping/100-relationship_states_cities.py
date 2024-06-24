@@ -10,6 +10,8 @@ import sys
 
 
 def db_engine():
+    """list relationship"""
+
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
