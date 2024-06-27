@@ -9,7 +9,11 @@ from relationship_city import City
 import sys
 
 
-def db_engine():
+def list_all_city_object():
+    """This function lists all city objects
+    from the database hbtn_0e_101_usa.
+    """
+
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
@@ -29,4 +33,4 @@ def db_engine():
 
 
 if __name__ == "__main__":
-    db_engine()
+    list_all_city_object()

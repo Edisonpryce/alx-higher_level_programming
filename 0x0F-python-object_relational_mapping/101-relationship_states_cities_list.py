@@ -9,7 +9,11 @@ from relationship_city import City
 import sys
 
 
-def db_engine():
+def list_all_states_and_cities():
+    """This function lists all states objects and city
+    objects, contained in the database hbtn_0e_101_usa.
+    """
+
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
@@ -21,7 +25,7 @@ def db_engine():
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     for state in session.query(State).order_by(State.id):
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
@@ -29,4 +33,4 @@ def db_engine():
 
 
 if __name__ == "__main__":
-    db_engine()
+    list_all_states_and_cities()
