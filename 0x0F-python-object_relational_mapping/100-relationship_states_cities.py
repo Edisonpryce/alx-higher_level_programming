@@ -10,7 +10,9 @@ import sys
 
 
 def db_engine():
-    """list relationship"""
+    """list relationship
+    San Francisco from the database hbtn_0e_100_usa
+    """
 
     user = sys.argv[1]
     password = sys.argv[2]
