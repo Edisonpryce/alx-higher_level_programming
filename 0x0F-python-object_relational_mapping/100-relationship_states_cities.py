@@ -9,9 +9,9 @@ from relationship_city import City
 import sys
 
 
-def db_engine():
-    """list relationship
-    San Francisco from the database hbtn_0e_100_usa
+def create_state_with_city():
+    """This function creates the state Carlifornia with the city
+    San Francisco from the database hbtn_0e_100_usa.
     """
 
     user = sys.argv[1]
@@ -35,4 +35,4 @@ def db_engine():
 
 
 if __name__ == "__main__":
-    db_engine()
+    create_state_with_city()
