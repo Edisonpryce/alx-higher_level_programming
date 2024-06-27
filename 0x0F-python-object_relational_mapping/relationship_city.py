@@ -13,7 +13,6 @@ class City(Base):
     name (str): the name of the class City
     state_id (int): Its the id of the state of the class City
     """
-    
     __tablename__ = 'cities'
 
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
