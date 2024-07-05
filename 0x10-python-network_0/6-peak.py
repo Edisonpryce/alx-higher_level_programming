@@ -16,7 +16,7 @@ def find_peak(list_of_int):
     if size_l == 0:
         return None
 
-    while True:
+    while 1:
         mid_l = mid_l // 2
         if (mid < size_l - 1 and
                 list_of_int[mid] < list_of_int[mid + 1]):
