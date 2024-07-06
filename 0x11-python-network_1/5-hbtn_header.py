@@ -2,7 +2,7 @@
 """Displays a given URL X-Request-Id header.
 Usage(cmd): ./5-hbtn_header.py <URL>
 """
-from urllib.request import get
+from request import get
 import sys
 
 
