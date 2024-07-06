@@ -3,7 +3,7 @@
 Usage(cmd): ./6-post_email.py <URL> <email>
     - Showing the response
 """
-from request import post
+from requests import post
 import sys
 
 
