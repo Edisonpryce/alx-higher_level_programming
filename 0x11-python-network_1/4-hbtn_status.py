@@ -9,5 +9,6 @@ def main():
     print("\t- type: {}".format(type(r.text)))
     print("\t- content: {}".format(r.text))
 
+
 if __name__ == '__main__':
     main()
