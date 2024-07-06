@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """gets data from https://alx-intranet.hbtn.io/status"""
-from urllib.request import get
+from request import get
 
 
 def main():
