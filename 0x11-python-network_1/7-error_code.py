@@ -3,7 +3,7 @@
 Usage(cmd): ./7-error_code.py <URL>
     - http error been handled
 """
-from request import get
+from requests import get
 import sys
 
 
